@@ -1,0 +1,13 @@
+{
+	"welcomeFile": "index.html",
+    "sendWelcomeFileRedirect": true,
+	"routes": [{
+		"path": "/sap/opu/odata",
+		"target": {
+			"type": "destination",
+			"name": "RefAppsBackend",
+			"entryPath": "/sap/opu/odata"
+		},
+		"description": "Backend OData services"
+	}]
+}
