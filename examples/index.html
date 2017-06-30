@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>SAP OData Light</title>
+  
+  <meta name="description" content="Lightweight SAP V2 OData Library">
+  <meta name="author" content="Denise Nepraunig">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="css/pure-min.css">
+  <script src="js/vue.min.js"></script>
+  
+  <style>
+  	#app {
+  		margin: 25px;
+  	}
+  </style>
+</head>
+
+<body>
+	<div id="app">
+        <h1 class="splash-head">Lightweight SAP OData V2 Library</h1>
+        
+        <!-- Random Purchase Order -->
+        <div>
+        	<h2>Random Purchase Order</h2>
+        	<p><b>Purchase Order ID:</b> <br>{{purchaseOrder.POId}}</p>
+        	<p><b>SupplierName:</b> <br>{{purchaseOrder.SupplierName}}</p>
+        	<p><b>Gross Amount:</b> <br>{{purchaseOrder.GrossAmount}} {{purchaseOrder.CurrencyCode}}</p>
+        </div>
+        
+        <!-- Two-Way binding -->
+        <div>
+        	<h2>Two-Way binding</h2>
+        	<form class="pure-form pure-form-stacked">
+        		<fieldset>
+        			<label for="supplierName">Supplier Name</label>
+        			<input id="supplierName" v-model="purchaseOrder.SupplierName">
+        		</fieldset>
+        	</form>
+        </div>
+        
+        <!-- Purchase Order List -->
+        <div>
+        	<h2>Purchase Order List</h2>
+        	
+        	<table class="pure-table">
+        		
+			    <thead>
+			        <tr>
+			            <th>PO #</th>
+			            <th>Supplier</th>
+			            <th>Gross Amount</th>
+			        </tr>
+			    </thead>
+			
+			    <tbody>
+			    	<tr v-for="po in purchaseOrders">
+			    		<td>{{ po.POId }}</td>
+			    		<td>{{ po.SupplierName }}</td>
+			    		<td>{{ po.GrossAmount }} {{ po.CurrencyCode }}</td>
+			    	</tr>
+				</tbody>
+				
+			</table>
+        </div>
+    </div>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
